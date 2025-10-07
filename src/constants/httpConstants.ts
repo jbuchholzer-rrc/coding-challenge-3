@@ -1,4 +1,16 @@
+/*
+ HTTP Status Codes
+Standard HTTP response status codes used throughout the API
+ */
 export const HTTP_STATUS = {
-    // Add the status codes you'll need
-    // OK, CREATED, BAD_REQUEST, NOT_FOUND, INTERNAL_SERVER_ERROR
+    OK: 200,
+    CREATED: 201,
+    BAD_REQUEST: 400,
+    NOT_FOUND: 404,
+    INTERNAL_SERVER_ERROR: 500
 } as const;
+
+/*
+  Type for HTTP status code values
+ */
+export type HttpStatusCode = typeof HTTP_STATUS[keyof typeof HTTP_STATUS];
