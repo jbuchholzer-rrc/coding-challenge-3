@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { createTask } from '../services/taskService';
+import { createTask as createTaskService } from '../services/taskService';
 import { HTTP_STATUS } from '../../../constants/httpConstants';
 
 /**
@@ -9,14 +9,14 @@ import { HTTP_STATUS } from '../../../constants/httpConstants';
  * @param res - Express response object
  * @param next - Express next function for error handling
  */
-export const createTaskController = async (
+export const createTask = async (
     req: Request,
     res: Response,
     next: NextFunction
 ): Promise<void> => {
     try {
         // Call the service layer to create the task
-        const newTask = await createTask(req.body);
+        const newTask = await createTaskService(req.body);
 
         // Send success response with 201 Created status
         res.status(HTTP_STATUS.CREATED).json(newTask);
