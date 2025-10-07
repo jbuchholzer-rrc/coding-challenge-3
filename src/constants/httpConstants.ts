@@ -1,7 +1,3 @@
-/*
- HTTP Status Codes
-Standard HTTP response status codes used throughout the API
- */
 export const HTTP_STATUS = {
     OK: 200,
     CREATED: 201,
@@ -11,6 +7,6 @@ export const HTTP_STATUS = {
 } as const;
 
 /*
-  Type for HTTP status code values
+ Type for HTTP status code values
  */
 export type HttpStatusCode = typeof HTTP_STATUS[keyof typeof HTTP_STATUS];
