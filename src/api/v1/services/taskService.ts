@@ -1,5 +1,5 @@
 import { Task } from '../models/taskModel';
-import { createDocument } from '../../../repository/firestoreRepository';
+import { addDocument } from '../repository/firestoreRepository';
 
 /**
  * Service function to create a new task.
@@ -20,7 +20,7 @@ export const createTask = async (
     };
 
     // Use repository to create document in 'tasks' collection
-    const taskId = await createDocument<Task>('tasks', taskWithTimestamps);
+    const taskId = await addDocument<Task>('tasks', taskWithTimestamps);
 
     // Return complete task with id
     return {
